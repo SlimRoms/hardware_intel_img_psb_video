@@ -27,6 +27,7 @@ LOCAL_PATH := $(call my-dir)
 # =====================================================
 include $(CLEAR_VARS)
 
+LOCAL_C_INCLUDES += $(TARGET_OUT_INTERMEDIATES)/KERNEL_OBJ/usr/include
 LOCAL_SRC_FILES := \
     topazhp_bin.c \
     JPEGMasterFirmware_bin.c \
@@ -53,6 +54,8 @@ LOCAL_SRC_FILES := \
 
 LOCAL_MODULE_TAGS := optional
 LOCAL_MODULE := topazhp_bin
+
+LOCAL_ADDITIONAL_DEPENDENCIES := $(TARGET_OUT_INTERMEDIATES)/KERNEL_OBJ/usr
 
 include $(BUILD_EXECUTABLE)
 

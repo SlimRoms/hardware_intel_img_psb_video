@@ -27,6 +27,7 @@ LOCAL_PATH := $(call my-dir)
 # =====================================================
 include $(CLEAR_VARS)
 
+LOCAL_C_INCLUDES += $(TARGET_OUT_INTERMEDIATES)/KERNEL_OBJ/usr/include
 LOCAL_SRC_FILES := \
     topaz_bin.c \
     H263Firmware_bin.c \
@@ -43,15 +44,20 @@ LOCAL_SRC_FILES := \
 LOCAL_MODULE_TAGS := optional
 LOCAL_MODULE := topaz_bin
 
+LOCAL_ADDITIONAL_DEPENDENCIES := $(TARGET_OUT_INTERMEDIATES)/KERNEL_OBJ/usr
+
 include $(BUILD_EXECUTABLE)
 
 # For fwinfo
 # =====================================================
 include $(CLEAR_VARS)
 
+LOCAL_C_INCLUDES += $(TARGET_OUT_INTERMEDIATES)/KERNEL_OBJ/usr/include
 LOCAL_SRC_FILES := fwinfo.c
 LOCAL_MODULE_TAGS := optional
 LOCAL_MODULE := imginfo
+
+LOCAL_ADDITIONAL_DEPENDENCIES := $(TARGET_OUT_INTERMEDIATES)/KERNEL_OBJ/usr
 
 include $(BUILD_EXECUTABLE)
 
@@ -59,6 +65,7 @@ include $(BUILD_EXECUTABLE)
 # =====================================================
 include $(CLEAR_VARS)
 
+LOCAL_C_INCLUDES += $(TARGET_OUT_INTERMEDIATES)/KERNEL_OBJ/usr/include
 LOCAL_SRC_FILES := topazsc_bin.c \
     H263MasterFirmware_bin.c \
     H263MasterFirmwareCBR_bin.c \
@@ -85,6 +92,8 @@ LOCAL_SRC_FILES := topazsc_bin.c \
 
 LOCAL_MODULE_TAGS := optional
 LOCAL_MODULE := topazsc_bin
+
+LOCAL_ADDITIONAL_DEPENDENCIES := $(TARGET_OUT_INTERMEDIATES)/KERNEL_OBJ/usr
 
 include $(BUILD_EXECUTABLE)
 

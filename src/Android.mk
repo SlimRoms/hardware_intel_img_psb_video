@@ -41,6 +41,8 @@ LOCAL_C_INCLUDES := \
     $(TARGET_OUT_HEADERS)/pvr \
     $(LOCAL_PATH)/hwdefs
 
+LOCAL_C_INCLUDES += $(TARGET_OUT_INTERMEDIATES)/KERNEL_OBJ/usr/include
+    
 LOCAL_SHARED_LIBRARIES += libdl libdrm libwsbm libcutils \
     libutils libbinder libhardware liblog
 
@@ -158,5 +160,7 @@ LOCAL_CFLAGS += -Werror
 
 LOCAL_MODULE_TAGS := optional
 LOCAL_MODULE := pvr_drv_video
+
+LOCAL_ADDITIONAL_DEPENDENCIES := $(TARGET_OUT_INTERMEDIATES)/KERNEL_OBJ/usr
 
 include $(BUILD_SHARED_LIBRARY)
